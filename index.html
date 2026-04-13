@@ -22,33 +22,33 @@
   <span>💌</span>
 </div>
 
-<!-- 🔊 AUDIO -->
-<audio id="music" loop>
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8c8a7b3b0.mp3" type="audio/mp3">
-</audio>
+<!-- 🔐 LOCKSCREEN -->
+<div class="lock" id="lock">
+  <div class="box">
+    <h2>enter password 💚</h2>
+    <input type="password" id="pass" placeholder="••••••">
+    <button onclick="unlock()">unlock</button>
+    <p id="error"></p>
+  </div>
+</div>
 
-<audio id="unlockSound">
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_5c7a2b7c2d.mp3" type="audio/mp3">
-</audio>
-
-<div class="container">
+<!-- MENU -->
+<div class="container" id="container">
 
   <h1>open when you need me 💌</h1>
 
-  <!-- MENU -->
   <div class="menu" id="menu">
     <h2>choose a letter ✿</h2>
 
-    <button onclick="openLock('miss')">💌 miss me</button>
-    <button onclick="openLock('sad')">💔 sad</button>
-    <button onclick="openLock('tired')">😴 tired</button>
-    <button onclick="openLock('happy')">🎉 happy</button>
-    <button onclick="openLock('proud')">🌿 proud</button>
-    <button onclick="openLock('alone')">🌙 alone</button>
-    <button onclick="openLock('secret')">???</button>
+    <button onclick="openLetter('miss')">💌 miss me</button>
+    <button onclick="openLetter('sad')">💔 sad</button>
+    <button onclick="openLetter('tired')">😴 tired</button>
+    <button onclick="openLetter('happy')">🎉 happy</button>
+    <button onclick="openLetter('proud')">🌿 proud</button>
+    <button onclick="openLetter('alone')">🌙 alone</button>
+    <button onclick="openLetter('secret')">???</button>
   </div>
 
-  <!-- LETTER -->
   <div class="letter" id="letter">
     <div class="paper" id="paper"></div>
     <button onclick="back()">back</button>
@@ -56,14 +56,13 @@
 
 </div>
 
-<!-- 🔒 LOCKSCREEN -->
-<div class="lockscreen" id="lockscreen">
-  <div class="lockbox" id="lockbox">
-    <h2>enter password</h2>
-    <input type="password" id="lockinput">
-    <button onclick="checkPassword()">unlock</button>
-  </div>
-</div>
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8c8a7b3b0.mp3">
+</audio>
+
+<audio id="unlockSound">
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_5c7a2b7c2d.mp3">
+</audio>
 
 <script src="script.js"></script>
 </body>
