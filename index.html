@@ -7,6 +7,9 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- IMPORTANT: ensures JS loads after HTML -->
+  <script defer src="script.js"></script>
 </head>
 
 <body>
@@ -15,11 +18,7 @@
 
 <!-- 💌 floating envelopes -->
 <div class="floating-env">
-  <span>💌</span>
-  <span>💌</span>
-  <span>💌</span>
-  <span>💌</span>
-  <span>💌</span>
+  <span>💌</span><span>💌</span><span>💌</span><span>💌</span><span>💌</span>
 </div>
 
 <!-- 🔐 LOCKSCREEN -->
@@ -32,7 +31,7 @@
   </div>
 </div>
 
-<!-- MENU -->
+<!-- MAIN APP -->
 <div class="container" id="container">
 
   <h1>open when you need me 💌</h1>
@@ -56,6 +55,7 @@
 
 </div>
 
+<!-- sounds -->
 <audio id="music" loop>
   <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8c8a7b3b0.mp3">
 </audio>
@@ -64,6 +64,5 @@
   <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_5c7a2b7c2d.mp3">
 </audio>
 
-<script src="script.js"></script>
 </body>
 </html>
