@@ -76,35 +76,35 @@ Reminder: You are still becoming something beautiful.
   `
 };
 
-/* unlock */
-function unlock() {
-  const pass = document.getElementById("pass").value;
+/* unlock FIX */
+window.unlock = function () {
+  const pass = document.getElementById("pass").value.trim();
   const error = document.getElementById("error");
 
   if (pass === correctPass) {
     document.getElementById("lock").style.display = "none";
     document.getElementById("container").style.display = "flex";
 
-    document.getElementById("music").play();
-    document.getElementById("unlockSound").play();
+    document.getElementById("music").play().catch(()=>{});
+    document.getElementById("unlockSound").play().catch(()=>{});
   } else {
     error.innerText = "wrong password 💔";
   }
-}
+};
 
 /* open letter */
-function openLetter(type) {
+window.openLetter = function(type) {
   document.getElementById("menu").style.display = "none";
   document.getElementById("letter").style.display = "block";
 
   typeText(messages[type], document.getElementById("paper"));
-}
+};
 
 /* back */
-function back() {
+window.back = function() {
   document.getElementById("letter").style.display = "none";
   document.getElementById("menu").style.display = "block";
-}
+};
 
 /* typing */
 function typeText(text, element, speed = 18) {
