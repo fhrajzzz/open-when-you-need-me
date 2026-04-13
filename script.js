@@ -1,27 +1,5 @@
-let currentLetter = "";
+const correctPass = "love";
 
-/* 💚 track opened letters */
-let opened = {
-  miss: false,
-  sad: false,
-  tired: false,
-  happy: false,
-  proud: false,
-  alone: false
-};
-
-/* 🔐 passwords per letter */
-const passwords = {
-  miss: "missyou",
-  sad: "cry",
-  tired: "rest",
-  happy: "smile",
-  proud: "proud",
-  alone: "lonely",
-  secret: "openme"
-};
-
-/* 💌 messages (your polished version) */
 const messages = {
   miss: `
 I miss you too 💚
@@ -98,38 +76,37 @@ Reminder: You are still becoming something beautiful.
   `
 };
 
-/* 🔒 open lockscreen */
-function openLock(type) {
-  currentLetter = type;
-  document.getElementById("lockscreen").style.display = "flex";
-}
+/* unlock */
+function unlock() {
+  const pass = document.getElementById("pass").value;
+  const error = document.getElementById("error");
 
-/* 🔑 check password */
-function checkPassword() {
-  const input = document.getElementById("lockinput");
-  const box = document.getElementById("lockbox");
+  if (pass === correctPass) {
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("container").style.display = "flex";
 
-  if (input.value === passwords[currentLetter]) {
-
-    // 🔊 sound
-    const sound = document.getElementById("unlockSound");
-    if (sound) sound.play();
-
-    document.getElementById("lockscreen").style.display = "none";
-
-    if (opened[currentLetter] !== undefined) {
-      opened[currentLetter] = true;
-    }
-
-    openLetter(currentLetter);
-
+    document.getElementById("music").play();
+    document.getElementById("unlockSound").play();
   } else {
-    box.classList.add("shake");
-    setTimeout(() => box.classList.remove("shake"), 300);
+    error.innerText = "wrong password 💔";
   }
 }
 
-/* ✨ typing effect */
+/* open letter */
+function openLetter(type) {
+  document.getElementById("menu").style.display = "none";
+  document.getElementById("letter").style.display = "block";
+
+  typeText(messages[type], document.getElementById("paper"));
+}
+
+/* back */
+function back() {
+  document.getElementById("letter").style.display = "none";
+  document.getElementById("menu").style.display = "block";
+}
+
+/* typing */
 function typeText(text, element, speed = 18) {
   element.innerHTML = "";
   let i = 0;
@@ -142,48 +119,4 @@ function typeText(text, element, speed = 18) {
     }
   }
   typing();
-}
-
-/* 💌 open letter */
-function openLetter(type) {
-  document.getElementById("menu").style.display = "none";
-  document.getElementById("letter").style.display = "block";
-
-  const paper = document.getElementById("paper");
-  typeText(messages[type], paper);
-
-  // 🎵 background music
-  const music = document.getElementById("music");
-  if (music) music.play();
-
-  checkFinalSecret();
-}
-
-/* 🔙 back */
-function back() {
-  document.getElementById("letter").style.display = "none";
-  document.getElementById("menu").style.display = "block";
-}
-
-/* 💌 unlock final secret if all opened */
-function checkFinalSecret() {
-  const allOpened = Object.values(opened).every(v => v === true);
-
-  if (allOpened) {
-    messages.secret = `
-💌 FINAL LETTER
-
-You opened everything…
-
-and I just want you to know:
-
-I’m proud of you for staying until the end.
-
-Even in real life, please keep going gently.
-
-You are not behind. You are becoming.
-
-“Jeremiah 29:11”
-    `;
-  }
 }
