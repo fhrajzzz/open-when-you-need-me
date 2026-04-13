@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open When 💌</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="container">
+
+  <h1>open when you need me 💌</h1>
+
+  <div class="card" id="lock">
+    <p>enter password</p>
+    <input type="password" id="pass" placeholder="••••••">
+    <button onclick="unlock()">unlock</button>
+  </div>
+
+  <div class="menu" id="menu">
+    <h2>choose a letter ✿</h2>
+
+    <button onclick="openLetter('miss')">💌 miss me</button>
+    <button onclick="openLetter('sad')">💔 sad</button>
+    <button onclick="openLetter('tired')">😴 tired</button>
+    <button onclick="openLetter('happy')">🎉 happy</button>
+    <button onclick="openLetter('proud')">🌿 proud</button>
+    <button onclick="openLetter('alone')">🌙 alone</button>
+
+    <button onclick="openSecret()">???</button>
+  </div>
+
+  <div class="letter" id="letter">
+    <p id="text"></p>
+    <button onclick="back()">back</button>
+  </div>
+
+</div>
+
+<div class="hearts">
+  <span>💚</span><span>🤍</span><span>💚</span><span>🤍</span><span>💚</span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
