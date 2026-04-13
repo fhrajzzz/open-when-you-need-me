@@ -18,42 +18,7 @@ body {
   z-index: -1;
 }
 
-/* lockscreen */
-.lock {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.lock .box {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  width: 250px;
-}
-
-.lock input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-}
-
-.lock button {
-  margin-top: 10px;
-  width: 100%;
-  padding: 10px;
-  background: #5f7a5f;
-  color: white;
-  border: none;
-  border-radius: 10px;
-}
-
-/* container */
+/* layout */
 .container {
   display: none;
   min-height: 100vh;
@@ -141,4 +106,39 @@ button:active {
   0% {transform: translateY(0); opacity:0;}
   50% {opacity:1;}
   100% {transform: translateY(-100vh); opacity:0;}
+}
+
+/* lockscreen */
+.lock {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lock .box {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 260px;
+  text-align: center;
+}
+
+.lock input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.lock button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  background: #5f7a5f;
+  color: white;
+  border: none;
+  border-radius: 10px;
 }
