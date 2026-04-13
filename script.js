@@ -76,6 +76,14 @@ Reminder: You are still becoming something beautiful.
   `
 };
 
+/* =========================
+   ❗ FIX #1 (IMPORTANT)
+   CONNECT BUTTON TO FUNCTION
+   ========================= */
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("unlockBtn").addEventListener("click", unlock);
+});
+
 /* unlock FIX */
 window.unlock = function () {
   const pass = document.getElementById("pass").value.trim();
@@ -87,6 +95,7 @@ window.unlock = function () {
 
     document.getElementById("music").play().catch(()=>{});
     document.getElementById("unlockSound").play().catch(()=>{});
+
   } else {
     error.innerText = "wrong password 💔";
   }
