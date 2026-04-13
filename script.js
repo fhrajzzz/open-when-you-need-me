@@ -1,5 +1,8 @@
 const correctPass = "love";
 
+/* =========================
+   MESSAGES
+   ========================= */
 const messages = {
   miss: `
 I miss you too 💚
@@ -77,31 +80,43 @@ Reminder: You are still becoming something beautiful.
 };
 
 /* =========================
-   ❗ FIX #1 (IMPORTANT)
-   CONNECT BUTTON TO FUNCTION
+   🔐 UNLOCK (FIXED 100%)
    ========================= */
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("unlockBtn").addEventListener("click", unlock);
-});
+window.addEventListener("load", () => {
 
-/* unlock FIX */
-window.unlock = function () {
-  const pass = document.getElementById("pass").value.trim();
+  const btn = document.getElementById("unlockBtn");
+  const pass = document.getElementById("pass");
   const error = document.getElementById("error");
 
-  if (pass === correctPass) {
-    document.getElementById("lock").style.display = "none";
-    document.getElementById("container").style.display = "flex";
-
-    document.getElementById("music").play().catch(()=>{});
-    document.getElementById("unlockSound").play().catch(()=>{});
-
-  } else {
-    error.innerText = "wrong password 💔";
+  if (!btn) {
+    console.log("ERROR: unlockBtn not found");
+    return;
   }
-};
 
-/* open letter */
+  btn.onclick = function () {
+
+    if (pass.value.trim() === correctPass) {
+
+      document.getElementById("lock").style.display = "none";
+      document.getElementById("container").style.display = "flex";
+
+      const music = document.getElementById("music");
+      const sound = document.getElementById("unlockSound");
+
+      if (music) music.play().catch(()=>{});
+      if (sound) sound.play().catch(()=>{});
+
+    } else {
+      error.innerText = "wrong password 💔";
+    }
+
+  };
+
+});
+
+/* =========================
+   💌 OPEN LETTER
+   ========================= */
 window.openLetter = function(type) {
   document.getElementById("menu").style.display = "none";
   document.getElementById("letter").style.display = "block";
@@ -109,13 +124,17 @@ window.openLetter = function(type) {
   typeText(messages[type], document.getElementById("paper"));
 };
 
-/* back */
+/* =========================
+   🔙 BACK
+   ========================= */
 window.back = function() {
   document.getElementById("letter").style.display = "none";
   document.getElementById("menu").style.display = "block";
 };
 
-/* typing */
+/* =========================
+   ⌨️ TYPING EFFECT
+   ========================= */
 function typeText(text, element, speed = 18) {
   element.innerHTML = "";
   let i = 0;
@@ -127,5 +146,6 @@ function typeText(text, element, speed = 18) {
       setTimeout(typing, speed);
     }
   }
+
   typing();
 }
