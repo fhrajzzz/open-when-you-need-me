@@ -1,58 +1,105 @@
-body {
+/* RESET */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BACKGROUND */
+body {
   font-family: 'Patrick Hand', cursive;
   background: #e8efe6;
   overflow-x: hidden;
 }
 
+/* soft background */
 .bg {
   position: fixed;
   width: 100%;
   height: 100%;
   background: radial-gradient(circle, #f4f8f2, #dbe7d7);
+  z-index: -1;
 }
 
+/* CENTER EVERYTHING */
 .container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 20px;
-  margin-top: 12vh;
+  gap: 15px;
 }
 
+/* TITLE */
+h1 {
+  color: #3b4b3b;
+  font-size: 26px;
+}
+
+/* BOXES */
 .card, .menu, .letter {
+  width: 90%;
+  max-width: 360px;
   background: #f4f8f2;
   padding: 20px;
-  margin: 20px auto;
   border-radius: 20px;
-  width: 90%;
-  max-width: 350px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
+/* INPUT */
 input {
+  width: 100%;
   padding: 10px;
+  margin-top: 10px;
   border-radius: 10px;
   border: 1px solid #aaa;
-  width: 80%;
+  font-family: inherit;
 }
 
+/* BUTTONS */
 button {
+  width: 100%;
   margin-top: 10px;
-  padding: 10px 14px;
+  padding: 10px;
   border: none;
   border-radius: 12px;
   background: #5f7a5f;
   color: white;
-  cursor: pointer;
   font-family: inherit;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.menu { display: none; }
+button:hover {
+  transform: scale(1.03);
+}
 
-.letter { display: none; min-height: 200px; }
+/* LETTER TEXT */
+.letter {
+  min-height: 200px;
+  line-height: 1.6;
+  font-size: 18px;
+  animation: fade 0.5s ease;
+}
 
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* HIDE MENU INITIALLY */
+.menu {
+  display: none;
+}
+
+/* FLOATING HEARTS */
 .hearts span {
   position: absolute;
   bottom: -50px;
+  font-size: 20px;
   animation: float 8s linear infinite;
 }
 
